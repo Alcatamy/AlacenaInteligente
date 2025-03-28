@@ -1,0 +1,54 @@
+INSTRUCCIONES PARA EJECUTAR LA APLICACIÓN ALACENA INTELIGENTE
+===========================================================
+
+Se han realizado modificaciones temporales para permitir la ejecución de la aplicación debido a problemas con redux-persist.
+
+Para ejecutar correctamente la aplicación:
+
+1. ASEGÚRATE DE CERRAR TODOS LOS PROCESOS DE NODE:
+   - Ejecuta en PowerShell: taskkill /f /im node.exe
+
+2. INICIA METRO EN UN PUERTO ESPECÍFICO:
+   - Ejecuta en una terminal: npx react-native start --reset-cache --port 8083
+
+3. ABRE ANDROID STUDIO:
+   - Abre el proyecto desde la carpeta: C:\Projects\AlacenaInteligente\android
+   - Deja que Gradle sincronice completamente
+
+4. EJECUTA LA APLICACIÓN DESDE ANDROID STUDIO:
+   - Asegúrate de que el emulador está activo
+   - Presiona el botón Run (▶️) en Android Studio
+
+5. CUANDO LA APLICACIÓN ESTÉ FUNCIONANDO CORRECTAMENTE:
+
+   a) Restaura el código de redux-persist:
+      - En App.tsx - Descomenta las líneas de PersistGate
+      - En src/store/store.js - Descomenta las líneas relacionadas con persistStore y persistReducer
+
+   b) Reinstala redux-persist si es necesario:
+      - npm uninstall redux-persist
+      - npm install redux-persist@latest
+
+NOTAS IMPORTANTES:
+-----------------
+- Se han hecho cambios temporales en App.tsx y store.js para evitar errores con redux-persist
+- La versión de Gradle se ha ajustado a 8.7.3 para compatibilidad con Android Studio
+- Se ha añadido org.gradle.vfs.watch=false en gradle.properties para evitar problemas con archivos bloqueados
+- Todos los API y Redux Slices están correctamente implementados
+
+Para cualquier problema, consulta la sección "Solución de problemas" al final de este documento.
+
+SOLUCIÓN DE PROBLEMAS:
+--------------------
+- Si hay errores de compilación relacionados con archivos bloqueados:
+  * Reinicia completamente el sistema
+  * Elimina las carpetas build de los directorios problemáticos
+  * Ejecuta el proyecto desde Android Studio con permisos de administrador
+
+- Si persisten problemas con redux-persist:
+  * Considera usar AsyncStorage directamente para persistencia
+  * O implementa una solución personalizada basada en AsyncStorage
+
+- Para problemas con Java:
+  * Instala JDK 17 (versión recomendada para React Native)
+  * Configura JAVA_HOME correctamente

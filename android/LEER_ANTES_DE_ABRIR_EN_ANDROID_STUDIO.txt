@@ -1,0 +1,34 @@
+IMPORTANTE: LEER ANTES DE ABRIR EN ANDROID STUDIO
+==============================================
+
+Aspectos clave para la compilación correcta:
+
+1. VERSIÓN DE GRADLE:
+   - Se ha configurado la versión 8.7.3 del plugin de Gradle para Android
+   - Si Android Studio sugiere actualizaciones, NO las aceptes
+
+2. AJUSTES DE GRADLE:
+   - Se ha añadido org.gradle.vfs.watch=false en gradle.properties
+   - Esto previene problemas con archivos bloqueados en Windows
+
+3. PROCESO DE DESARROLLO:
+   - No ejecutes "gradlew clean" desde la terminal (usa Android Studio)
+   - Usa "Invalidate Caches / Restart" en Android Studio si hay problemas
+
+4. MODIFICACIONES TEMPORALES:
+   - App.tsx y store.js tienen cambios temporales para evitar errores
+   - Estos deben restaurarse cuando la aplicación compile correctamente
+
+5. DEPENDENCIAS:
+   - Todas las bibliotecas necesarias están en package.json
+   - Se ha agregado gson para Android para mejor compatibilidad
+
+GUÍA RÁPIDA:
+-----------
+1. Abre el proyecto Android en Android Studio
+2. Deja que sincronice completamente
+3. Ejecuta Metro en un terminal separado: 
+   npx react-native start --reset-cache --port 8083
+4. Presiona Run en Android Studio
+
+Para más detalles, consulta el archivo INSTRUCCIONES_PARA_EJECUTAR.txt en la raíz del proyecto.
